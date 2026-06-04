@@ -1,0 +1,38 @@
+{
+  "name": "spa-rick-morty",
+  "version": "1.0.0",
+  "description": "SPA con JavaScript Vanilla, Routing SPA, Axios y arquitectura modular.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "server:auth": "npx json-server --watch auth-db.json --port 3001",
+    "server:data": "npx json-server --watch data-db.json --port 3002",
+    "frontend": "vite",
+    "dev": "concurrently \"npm run server:auth\" \"npm run server:data\" \"npm run frontend\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "spa",
+    "javascript",
+    "vanilla-js",
+    "axios",
+    "routing",
+    "rick-and-morty",
+    "frontend",
+    "single-page-application"
+  ],
+  "author": "Devis M",
+  "dependencies": {
+    "axios": "^1.17.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "vite": "^6.3.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "index.js",
+  "license": "ISC"
+}

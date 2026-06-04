@@ -1,0 +1,99 @@
+/* assets/css/styles.css */
+
+:root {
+  /* Paleta de colores base */
+  --primary-color: #2563eb;       /* Azul corporativo */
+  --secondary-color: #1e40af;     /* Azul oscuro para hovers */
+  --bg-color: #f3f4f6;            /* Gris muy claro para el fondo */
+  --text-color: #1f2937;          /* Gris oscuro para texto */
+  --white: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la pantalla */
+}
+
+/* Estilos para el Navbar (Header) */
+#navbar {
+  background-color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Contenedor principal */
+#content {
+  flex: 1; /* Empuja cualquier contenido futuro (como footer) hacia abajo */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Estilos específicos para el bloque .contenido visto en la imagen */
+.contenido {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.contenido h1 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.contenido p {
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+/* Animación suave de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividad básica */
+@media (max-width: 768px) {
+  #content {
+    padding: 1rem;
+  }
+
+  .contenido {
+    padding: 1.5rem;
+  }
+
+  .contenido h1 {
+    font-size: 1.5rem;
+  }
+}   

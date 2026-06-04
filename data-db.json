@@ -1,0 +1,31 @@
+{
+  "tickets": [
+    {
+      "name": "edgardo",
+      "type": "ayuda a solucion tegnologica",
+      "description": "ookokokokko",
+      "tecnicoId": "2",
+      "status": "en progreso",
+      "clienteId": "1",
+      "id": 1
+    },
+    {
+      "name": "edgardo",
+      "type": "ookokoko",
+      "description": "njnjnkjnkjnkj",
+      "status": "abierto",
+      "clienteId": "creado_por_soporte",
+      "tecnicoId": "2",
+      "id": 2
+    },
+    {
+      "name": "edgardo",
+      "type": "ayuda a solucion tegnologica",
+      "description": "kokokokokok",
+      "status": "abierto",
+      "clienteId": "3",
+      "tecnicoId": "2",
+      "id": 3
+    }
+  ]
+}
