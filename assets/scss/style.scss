@@ -5,6 +5,7 @@
     --text-color: #1f2937;
     --div-color: rgba(27, 99, 207, 0.418);
     --white: #ffffff;
+    --figure-color: #d4dcf1;
     --shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.486);
 }
 
@@ -15,7 +16,7 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@mixin --btn-desing {
+@mixin btnDesign {
     height: 45px;
     border-radius: 50px;
     border: none;
@@ -26,7 +27,7 @@
     }
 }
 
-@mixin --div-desing {
+@mixin divDesign {
     gap: 10px;
     width: 25%;
     min-width: 300px;
@@ -74,7 +75,7 @@ body {
                 font-size: larger;
             }
             button {
-                @include --btn-desing;
+                @include btnDesign;
                 padding-right: 10px;
                 padding-left: 10px;
             }
@@ -85,19 +86,18 @@ body {
         flex: 1;
         min-height: 0;
         width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: start;
-        flex-direction: column;
         gap: 20px;
-        padding-top: 20px;
         overflow-y: auto;
 
         .login-container {
-            @include --div-desing;
+            @include divDesign;
             display: flex;
             flex-direction: column;
-            margin-top: 10%;
+            margin: auto;
             #login-form {
                 display: flex;
                 flex-direction: column;
@@ -116,37 +116,59 @@ body {
                     font-size: large;
                 }
                 button {
-                    @include --btn-desing;
+                    @include btnDesign;
                     width: 50%;
                 }
             }
         }
-        #form-container {
-            @include --div-desing;
-        }
-        #tickets-list {
-            width: 90%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            overflow-y: auto;
-            margin: 0%;
-        }
         .create-client {
-            @include --div-desing;
-            margin-top: 10%;
-            input {
-                display: flex;
-                width: 100%;
-                height: 45px;
-                padding: 14px;
-                border-radius: 50px;
-                border: none;
-                font-size: large;
+                @include divDesign;
+                margin: auto;
+                input {
+                    display: flex;
+                    width: 100%;
+                    height: 45px;
+                    padding: 14px;
+                    border-radius: 50px;
+                    border: none;
+                    font-size: large;
+                }
+                button {
+                    @include btnDesign;
+                    width: 50%;
+                }
             }
-            button {
-                @include --btn-desing;
-                width: 50%;
+        aside {
+            width: 30%;
+            height: 95%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+            #form-container {
+                @include divDesign;
+            }
+        }
+        figure{
+            width: 100%;
+            height: 95%;
+            border-radius: 8px;
+            background-color: var(--figure-color);
+            padding: 15px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: var(--shadow);
+            #tickets-list {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                overflow-y: auto;
+                scrollbar-width: none;
+                margin: 0%;
             }
         }
     }

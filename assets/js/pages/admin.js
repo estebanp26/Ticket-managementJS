@@ -9,10 +9,15 @@ export async function renderAdmin() {
     const session = getSession();
 
     container.innerHTML = `
-        <h2>Admin Panel</h2>
-        <div id="form-container"></div>
-        <h3>Total System tickets</h3>
-        <div id="tickets-list">Loading tickets...</div>
+        <aside class="admin-session">
+            <h2>Admin Panel</h2>
+            <div id="form-container"></div>
+        </aside>
+        <figure>
+            <h3>Total System tickets</h3>
+            <div id="tickets-list">Loading tickets...</div>
+        </figure>
+
     `;
 
     const formContainer = document.getElementById("form-container");
