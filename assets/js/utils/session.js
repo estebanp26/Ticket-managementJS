@@ -1,18 +1,19 @@
 import { navigateTo } from '../app.js';
+import { setItem, getItem, removeItem } from './storage.js';
 
 let inactivityTimeout;
 
 export function saveSession(user) {
-    localStorage.setItem('user_session', JSON.stringify(user));
+    setItem('user_session', user);
     resetInactivityTimer();
 }
 
 export function getSession() {
-    return JSON.parse(localStorage.getItem('user_session'));
+    return getItem('user_session');
 }
 
 export function clearSession() {
-    localStorage.removeItem('user_session');
+    removeItem('user_session');
     clearTimeout(inactivityTimeout);
     navigateTo('/login');
 }
@@ -23,11 +24,10 @@ export function resetInactivityTimer() {
         inactivityTimeout = setTimeout(() => {
             alert('Sesión cerrada por inactividad.');
             clearSession();
-        }, 5 * 60 * 1000); // 5 minutos
+        }, 5 * 60 * 1000);
     }
 }
 
-// Registrar eventos globales para detectar actividad
 ['click', 'mousemove', 'keypress', 'scroll'].forEach(event => {
     window.addEventListener(event, resetInactivityTimer);
 });
