@@ -10,7 +10,7 @@ export async function renderAdmin() {
 
     container.innerHTML = `
         <aside class="admin-session">
-            <h2>Admin Panel</h2>
+            <h2>Admin Dashboard</h2>
             <div id="form-container"></div>
         </aside>
         <figure>

@@ -8,7 +8,7 @@ export async function renderTechnical() {
     const session = getSession();
 
     container.innerHTML = `
-        <h2>Technical Panel</h2>
+        <h2>Technical Dashboard</h2>
         <div id="form-container"></div>
         <h3>My Assigned Tickets</h3>
         <div id="tickets-list">Loading your tickets...</div>

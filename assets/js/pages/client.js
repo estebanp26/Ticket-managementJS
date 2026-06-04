@@ -8,7 +8,7 @@ export async function renderClient() {
     const session = getSession();
 
     container.innerHTML = `
-        <h2>Requests Dashboard (Cliente)</h2>
+        <h2>Dashboard</h2>
         <div id="form-container"></div>
         <h3>Incidences history</h3>
         <div id="tickets-list">Loading your requests...</div>
