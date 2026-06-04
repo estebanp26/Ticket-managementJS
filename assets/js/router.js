@@ -5,15 +5,17 @@ import { renderTechnical } from './pages/technical.js';
 import { renderClient } from './pages/client.js';
 import { renderAccessDenied } from './pages/accessDenied.js';
 import { getSession, resetInactivityTimer } from './utils/session.js';
+import {createClient} from './pages/register.js';
 
 const routes = {
-    '/': { render: renderWelcome, roles: ['admin', 'tecnico', 'cliente'] },
+    '/': { render: renderWelcome, roles: ['admin', 'tech', 'client'] },
     '/login': { render: renderLogin, roles: [] },
     '/admin': { render: renderAdmin, roles: ['admin'] },
-    '/tech': { render: renderTechnical, roles: ['tecnico'] },
-    '/client': { render: renderClient, roles: ['cliente'] },
-    '/denied': { render: renderAccessDenied, roles: [] }
-};
+    '/tech': { render: renderTechnical, roles: ['tech'] },
+    '/client': { render: renderClient, roles: ['client'] },
+    '/denied': { render: renderAccessDenied, roles: [] },
+    '/register': { render: createClient, roles: [] },
+}; 
 
 function setActiveLink(path) {
     document.querySelectorAll('.navbar a[data-link]').forEach(link => {
@@ -48,7 +50,7 @@ export async function router() {
 
     // Redirección si ya está logueado e intenta ir a /login
     if (path === '/login' && session) {
-        const redirectPath = session.role === 'admin' ? '/admin' : session.role === 'tecnico' ? '/tech' : '/client';
+        const redirectPath = session.role === 'admin' ? '/admin' : session.role === 'tech' ? '/tech' : '/client';
         window.history.pushState(null, null, redirectPath);
         await router();
         return;

@@ -9,7 +9,7 @@ export const authService = {
             saveSession({ id: user.id, username: user.username, role: user.role });
             return user;
         }
-        throw new Error('Credenciales incorrectas');
+        throw new Error("Invalid credentials");
     },
     logout() {
         clearSession();

@@ -12,14 +12,32 @@
       "username": "tech1",
       "password": "password123",
       "name": "Juan Técnico",
-      "role": "tecnico"
+      "role": "tech"
     },
     {
       "id": "3",
       "username": "client1",
       "password": "password123",
       "name": "María Clienta",
-      "role": "cliente"
+      "role": "client"
+    },
+    {
+      "username": "admin1",
+      "password": "password123",
+      "role": "client",
+      "id": "4sUaYrB"
+    },
+    {
+      "username": "admin1",
+      "password": "password123",
+      "role": "client",
+      "id": "wPzZRu0"
+    },
+    {
+      "username": "nuevo",
+      "password": "1234",
+      "role": "client",
+      "id": "WrshgGJ"
     }
   ]
 }

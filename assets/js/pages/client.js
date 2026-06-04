@@ -8,10 +8,10 @@ export async function renderClient() {
     const session = getSession();
 
     container.innerHTML = `
-        <h2>Portal de Solicitudes (Cliente)</h2>
+        <h2>Requests Dashboard (Cliente)</h2>
         <div id="form-container"></div>
-        <h3>Historial de mis Incidencias</h3>
-        <div id="tickets-list">Cargando tus solicitudes...</div>
+        <h3>Incidences history</h3>
+        <div id="tickets-list">Loading your requests...</div>
     `;
 
     const formContainer = document.getElementById('form-container');
@@ -23,13 +23,13 @@ export async function renderClient() {
         const myTickets = allTickets.filter(t => t.clienteId == session.id);
 
         // Formulario de creación limpia para cliente
-        formContainer.innerHTML = renderTicketForm(null, null, [], 'cliente');
+        formContainer.innerHTML = renderTicketForm(null, null, [], 'client');
         setupFormSubmit(async (data) => {
             const newTicket = {
                 name: data.name,
                 type: data.type,
                 description: data.description,
-                status: 'abierto',
+                status: 'open',
                 clienteId: session.id,
                 tecnicoId: null // Espera asignación de un admin
             };
@@ -39,13 +39,13 @@ export async function renderClient() {
 
         // Listar sus tickets
         listContainer.innerHTML = myTickets.map(ticket => 
-            renderTicketCard(ticket, 'cliente', 
+            renderTicketCard(ticket, 'client', 
                 // Acción Editar (Solo si cumple la regla de negocio)
                 (t) => {
                     formContainer.innerHTML = renderTicketForm(async (updatedData) => {
                         await ticketService.update(t.id, { ...t, name: updatedData.name, type: updatedData.type, description: updatedData.description });
                         loadDashboard();
-                    }, t, [], 'cliente');
+                    }, t, [], 'client');
                     setupFormSubmit(async (updatedData) => {
                         await ticketService.update(t.id, { ...t, name: updatedData.name, type: updatedData.type, description: updatedData.description });
                         loadDashboard();
@@ -53,7 +53,7 @@ export async function renderClient() {
                 }, 
                 null
             )
-        ).join('') || '<p>No has reportado ninguna incidencia aún.</p>';
+        ).join('') || '<p>There is not any incidence reported yet.</p>';
     }
 
     await loadDashboard();

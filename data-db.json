@@ -3,17 +3,17 @@
     {
       "name": "edgardo",
       "type": "ayuda a solucion tegnologica",
-      "description": "ookokokokko",
+      "description": "naaaa",
       "tecnicoId": "2",
-      "status": "en progreso",
+      "status": "in Progress",
       "clienteId": "1",
       "id": 1
     },
     {
       "name": "edgardo",
       "type": "ookokoko",
-      "description": "njnjnkjnkjnkj",
-      "status": "abierto",
+      "description": "nuevo",
+      "status": "open",
       "clienteId": "creado_por_soporte",
       "tecnicoId": "2",
       "id": 2
@@ -21,11 +21,29 @@
     {
       "name": "edgardo",
       "type": "ayuda a solucion tegnologica",
-      "description": "kokokokokok",
-      "status": "abierto",
+      "description": "aja pues",
+      "status": "in Progress",
       "clienteId": "3",
       "tecnicoId": "2",
       "id": 3
+    },
+    {
+      "name": "Juan Gabriel",
+      "type": "nose",
+      "description": "nos e",
+      "tecnicoId": "2",
+      "status": "open",
+      "clienteId": "1",
+      "id": 4
+    },
+    {
+      "name": "Camilo",
+      "type": "general",
+      "description": "Importante",
+      "tecnicoId": "2",
+      "status": "open",
+      "clienteId": "1",
+      "id": 5
     }
   ]
 }

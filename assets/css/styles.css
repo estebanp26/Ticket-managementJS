@@ -1,99 +1,150 @@
-/* assets/css/styles.css */
-
 :root {
-  /* Paleta de colores base */
-  --primary-color: #2563eb;       /* Azul corporativo */
-  --secondary-color: #1e40af;     /* Azul oscuro para hovers */
-  --bg-color: #f3f4f6;            /* Gris muy claro para el fondo */
-  --text-color: #1f2937;          /* Gris oscuro para texto */
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --bg-color: #f3f4f6;
+  --text-color: #1f2937;
+  --div-color: rgba(27, 99, 207, 0.418);
   --white: #ffffff;
-  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+  --shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.486); }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Asegura que el cuerpo ocupe al menos toda la pantalla */
-}
+  height: 100vh;
+  overflow: hidden; }
+  body #navbar {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: relative;
+    height: 65px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--div-color);
+    flex-shrink: 0; }
+    body #navbar .navbar {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem; }
+      body #navbar .navbar h1 {
+        font-size: larger;
+        font-weight: 500; }
+      body #navbar .navbar a {
+        color: var(--text-color);
+        font-size: larger; }
+      body #navbar .navbar button {
+        height: 45px;
+        border-radius: 50px;
+        border: none;
+        background-color: var(--primary-color);
+        font-size: medium;
+        padding-right: 10px;
+        padding-left: 10px; }
+        body #navbar .navbar button:hover {
+          background-color: var(--secondary-color); }
+  body #content {
+    flex: 1;
+    min-height: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+    overflow-y: auto; }
+    body #content .login-container {
+      gap: 10px;
+      width: 25%;
+      min-width: 300px;
+      background-color: var(--div-color);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10%; }
+      body #content .login-container #login-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        padding-top: 10px; }
+        body #content .login-container #login-form input {
+          display: flex;
+          width: 100%;
+          height: 45px;
+          padding: 14px;
+          border-radius: 50px;
+          border: none;
+          font-size: large; }
+        body #content .login-container #login-form button {
+          height: 45px;
+          border-radius: 50px;
+          border: none;
+          background-color: var(--primary-color);
+          font-size: medium;
+          width: 50%; }
+          body #content .login-container #login-form button:hover {
+            background-color: var(--secondary-color); }
+    body #content #form-container {
+      gap: 10px;
+      width: 25%;
+      min-width: 300px;
+      background-color: var(--div-color);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      min-width: 320px; }
+    body #content #tickets-list {
+      width: 90%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      overflow-y: auto;
+      margin: 0%; }
+    body #content .create-client {
+      gap: 10px;
+      width: 25%;
+      min-width: 300px;
+      background-color: var(--div-color);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      min-width: 320px;
+      margin-top: 20%; }
+      body #content .create-client input {
+        display: flex;
+        width: 100%;
+        height: 45px;
+        padding: 14px;
+        border-radius: 50px;
+        border: none;
+        font-size: large; }
+      body #content .create-client button {
+        height: 45px;
+        border-radius: 50px;
+        border: none;
+        background-color: var(--primary-color);
+        font-size: medium;
+        width: 50%; }
+        body #content .create-client button:hover {
+          background-color: var(--secondary-color); }
 
-/* Estilos para el Navbar (Header) */
-#navbar {
-  background-color: var(--white);
-  box-shadow: var(--shadow);
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Contenedor principal */
-#content {
-  flex: 1; /* Empuja cualquier contenido futuro (como footer) hacia abajo */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Estilos específicos para el bloque .contenido visto en la imagen */
-.contenido {
-  background-color: var(--white);
-  padding: 2.5rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  text-align: center;
-  margin-top: 2rem;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.contenido h1 {
-  color: var(--primary-color);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.contenido p {
-  font-size: 1.1rem;
-  color: #4b5563;
-}
-
-/* Animación suave de entrada */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsividad básica */
-@media (max-width: 768px) {
-  #content {
-    padding: 1rem;
-  }
-
-  .contenido {
-    padding: 1.5rem;
-  }
-
-  .contenido h1 {
-    font-size: 1.5rem;
-  }
-}   
+/*# sourceMappingURL=styles.css.map */

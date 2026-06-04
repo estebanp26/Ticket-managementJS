@@ -8,10 +8,10 @@ export async function renderTechnical() {
     const session = getSession();
 
     container.innerHTML = `
-        <h2>Panel de Soporte Técnico</h2>
+        <h2>Technical Panel</h2>
         <div id="form-container"></div>
-        <h3>Mis Tickets Asignados</h3>
-        <div id="tickets-list">Cargando tus tickets...</div>
+        <h3>My Assigned Tickets</h3>
+        <div id="tickets-list">Loading your tickets...</div>
     `;
 
     const formContainer = document.getElementById('form-container');
@@ -23,14 +23,14 @@ export async function renderTechnical() {
         const myTickets = allTickets.filter(t => t.tecnicoId == session.id);
 
         // Formulario de creación automática de asignación
-        formContainer.innerHTML = renderTicketForm(null, null, [], 'tecnico');
+        formContainer.innerHTML = renderTicketForm(null, null, [], 'tech');
         setupFormSubmit(async (data) => {
             // Regla de negocio: Se le asigna automáticamente como responsable al crear
             const newTicket = {
                 name: data.name,
                 type: data.type,
                 description: data.description,
-                status: 'abierto',
+                status: 'open',
                 clienteId: 'creado_por_soporte',
                 tecnicoId: session.id
             };
@@ -40,13 +40,13 @@ export async function renderTechnical() {
 
         // Listar sus tickets
         listContainer.innerHTML = myTickets.map(ticket => 
-            renderTicketCard(ticket, 'tecnico', 
+            renderTicketCard(ticket, 'tech', 
                 // Acción Editar (Solo estado)
                 (t) => {
                     formContainer.innerHTML = renderTicketForm(async (updatedData) => {
                         await ticketService.update(t.id, { ...t, status: updatedData.status });
                         loadDashboard();
-                    }, t, [], 'tecnico');
+                    }, t, [], 'tech');
                     setupFormSubmit(async (updatedData) => {
                         await ticketService.update(t.id, { ...t, status: updatedData.status });
                         loadDashboard();
