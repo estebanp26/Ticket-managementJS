@@ -128,7 +128,7 @@ body {
       border-radius: 8px;
       box-shadow: var(--shadow);
       min-width: 320px;
-      margin-top: 20%; }
+      margin-top: 10%; }
       body #content .create-client input {
         display: flex;
         width: 100%;
