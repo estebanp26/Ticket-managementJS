@@ -164,3 +164,5 @@ Rather than checking roles inside each page component, the router itself handles
 
 **`httpClient.js` as a single source for API calls**
 Two pre-configured Axios instances (`authAPI` and `dataAPI`) are exported from one file. All services consume from here, so if a base URL changes, only one file needs updating.
+tysm
+
